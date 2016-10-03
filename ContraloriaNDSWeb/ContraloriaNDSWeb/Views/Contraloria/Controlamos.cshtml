@@ -1,0 +1,114 @@
+﻿@model ContraloriaNDSWeb.Models.Company
+
+@{
+    ViewBag.Title = "Controlamos a ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ContraloriaNDSWeb.Models.ContraloriandsContext db = new ContraloriaNDSWeb.Models.ContraloriandsContext();
+    var municipios = db.Cities.Where(x => x.DepartmentId == Model.DepartmentId).ToList().OrderBy(x=>x.Name);
+    var entes = db.Entes.Where(x => x.CompanyId == Model.CompanyId).ToList().OrderBy(x => x.Descripcion);
+    var consejos = db.Consejoes.Where(x => x.CompanyId == Model.CompanyId).ToList().OrderBy(x => x.Descripcion);
+    var hospitales = db.Hospitals.Where(x => x.CompanyId == Model.CompanyId).ToList().OrderBy(x => x.Descripcion);
+    var personerias = db.Personerias.Where(x => x.CompanyId == Model.CompanyId).ToList().OrderBy(x => x.Descripcion);
+
+}
+<link href="~/Content/Acordeon.css" rel="stylesheet" />
+
+<div class="accordion">
+    <h2>Controlamos a</h2>
+    <div class="panel-group" id="accordion1">
+      
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo1">
+                        Municipios (@municipios.Count())
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </a>
+                </h3>
+            </div>
+            <div id="collapseTwo1" class="panel-collapse collapse">
+                <div class="panel-body">
+                    @foreach (var itemM in municipios)
+                    {
+                        <p style="color:black">@itemM.Name</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree1">
+                        Entes Descentralizados (@entes.Count())
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </a>
+                </h3>
+            </div>
+            <div id="collapseThree1" class="panel-collapse collapse">
+                <div class="panel-body">
+                    @foreach (var itemE in entes)
+                    {
+                        <p style="color:black">@itemE.Descripcion</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFour1">
+                        Consejos (@consejos.Count())
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </a>
+                </h3>
+            </div>
+            <div id="collapseFour1" class="panel-collapse collapse">
+                <div class="panel-body">
+                    @foreach (var itemC in consejos)
+                    {
+                        <p style="color:black">@itemC.Descripcion</p>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFive1">
+                        Hospitales (@hospitales.Count())
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </a>
+                </h3>
+            </div>
+            <div id="collapseFive1" class="panel-collapse collapse">
+                <div class="panel-body">
+                    @foreach (var itemH in hospitales)
+                    {
+                        <p style="color:black">@itemH.Descripcion</p>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseSix1">
+                        Personerías (@personerias.Count())
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </a>
+                </h3>
+            </div>
+            <div id="collapseSix1" class="panel-collapse collapse">
+                <div class="panel-body">
+                    @foreach (var itemP in personerias)
+                    {
+                        <p style="color:black">@itemP.Descripcion</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div><!--/#accordion1-->
+</div>

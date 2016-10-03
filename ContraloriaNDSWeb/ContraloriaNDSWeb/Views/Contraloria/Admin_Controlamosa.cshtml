@@ -1,0 +1,18 @@
+﻿@model ContraloriaNDSWeb.Models.Company
+
+@{
+    ViewBag.Title = "Controlamos a";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Administracion controlamos a</h2>
+
+<blockquote>
+    <p>@Html.ActionLink("Municipios", "Index", "Cities")</p>
+    <p>@Html.ActionLink("Entes Descentralizados", "Index", "Entes")</p>
+    <p>@Html.ActionLink("Consejos", "Index", "Consejoes")</p>
+    <p>@Html.ActionLink("Hospitales", "Index", "Hospitales")</p>
+    <p>@Html.ActionLink("Personerías", "Index", "Personerias")</p>
+
+
+</blockquote>

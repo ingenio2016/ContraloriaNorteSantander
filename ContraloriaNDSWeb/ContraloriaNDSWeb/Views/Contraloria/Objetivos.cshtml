@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ContraloriaNDSWeb.Models.Objetivo>
+
+@{
+    ViewBag.Title = "Objetivos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="slice animate-hover-slide">
+    <div class="w-section inverse blog-grid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @*<div class="w-box blog-post">*@
+                                <div class="col-md-12">
+                                    <figure>
+                                        <h1>Objetivos</h1>
+                                        <div class="col-md-6">
+                                        @foreach (var item in Model)
+                                        {
+                                            <blockquote>
+                                                <p style="font-size:medium;color:black;text-align:justify">@item.Descripcion</p>
+
+                                            </blockquote>
+                                        }
+                                        </div>
+                                        <div class="col-md-6" align="center">
+                                                <img src="~/Content/WebImages/tula_contraloria_vert.png" class="img img-responsive" />
+                                        </div>
+                                    </figure>
+                                </div>
+                                
+                            @*</div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

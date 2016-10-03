@@ -1,0 +1,58 @@
+﻿@model ContraloriaNDSWeb.Models.Contralor
+
+@{
+    ViewBag.Title = "Nuestro Contralor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Administración Web</h2>
+
+<h3>Está seguro que desea borrar este perfil?</h3>
+<div>
+    <h4>Borrar Perfil</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver al Listado", "Index", new { }, new { @class = "btn btn-success" })
+        </div>
+    }
+</div>

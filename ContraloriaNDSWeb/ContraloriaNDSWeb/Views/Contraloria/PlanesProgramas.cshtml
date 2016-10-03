@@ -1,0 +1,85 @@
+﻿@model ContraloriaNDSWeb.Models.Company
+@{
+    ViewBag.Title = "Planes y Programas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ContraloriaNDSWeb.Models.ContraloriandsContext db = new ContraloriaNDSWeb.Models.ContraloriandsContext();
+    var PlanesPrograma = db.PlanesProgramas.Where(x => x.CompanyId == Model.CompanyId).ToList();
+    var years = db.Years.Where(x => x.CompanyId == Model.CompanyId).ToList();
+}
+
+<section class="slice animate-hover-slide">
+    <div class="w-section inverse blog-grid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @*<div class="w-box blog-post">*@
+                            <div class="col-md-12">
+                                <figure>
+                                    <h1>Planes de Programa</h1>
+                                    <div class="col-md-12">
+                                        <p style="font-size:medium;color:black;text-align:justify">
+                                            Como es conocido, el Plan estratégico Institucional es la directriz para el cumplimiento de la misión, la visión y los objetivos que desde luego se han trazado para lograr en este caso específico,  en el 2019 por parte de la Contraloría General del Departamento Norte de Santander.
+
+                                            Por lo anterior, la Contraloría General del Departamento de Norte de Santander, cual es el ente encargado desde el punto de vista territorial, del ejercicio del control y vigilancia fiscal de las entidades y de los particulares que manejan fondos o bienes públicos y en mejoramiento continúo, ha querido a través del Plan Estratégico –PEC-, facilitar la interacción de sus funcionarios con la comunidad, teniendo en cuenta que los temas e información aquí planteados se conviertan en el instrumento básico de la entidad, a partir del cual se llevan a cabo todas las actividades, los procesos misionales y de apoyo, teniendo en cuenta las distintas instancias y estamentos que a nivel Departamental e Institucional entran a jugar parte de manera decidida en este nuevo orden del control fiscal financiero, posterior y selectivo, que para éste nuevo período será de
+                                        </p><br />
+                                        @foreach (var item in PlanesPrograma)
+                                        {
+                                            <blockquote>
+                                                <p style="font-size:medium;color:darkred;text-align:justify">
+                                                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i><a style="font-size:medium;color:darkred" class="btn btn-link" href="@Url.Content(item.Adjunto)" target="_blank">@Html.DisplayFor(modelItem => item.Descripcion)</a>
+                                                </p>
+
+                                            </blockquote>
+                                        }
+                                    </div>
+
+                                </figure>
+                            </div>
+
+                            <div class="col-md-12">
+                                <figure>
+                                    <h1>Planes de Acción</h1>
+                                    <div class="col-md-12">
+                                        <blockquote>
+                                            @foreach (var ano in years)
+                                            {
+                                                var planesAccion = db.PlanesAccions.Where(x => x.Year.Name == ano.Name);
+
+                                                <p>@Html.ActionLink("Planes de acción del año " + ano.Name + " (" + planesAccion.Count() + ")", "PlanesAccion", "PlanesAccions", new { id = ano.Name }, new { @class = "btn btn-link", @style = "font-size:medium;color:darkred" })</p>
+                                            }
+                                        </blockquote>
+
+                                    </div>
+
+                                </figure>
+                            </div>
+
+                            <div class="col-md-12">
+                                <figure>
+                                    <h1>Planes anticorrupción</h1>
+                                    <div class="col-md-12">
+                                        <blockquote>
+                                            @foreach (var ano in years)
+                                            {
+                                                var planesCorrupcion = db.PlanAnticorrupcions.Where(x => x.Year.Name == ano.Name);
+
+                                                <p style="font-size:medium;color:darkred">@Html.ActionLink("Planes de acción del año " + ano.Name + " (" + planesCorrupcion.Count() + ")", "PlanesAntiCorrupcion", "PlanAnticorrupcions", new { id = ano.Name }, new { @class = "btn btn-link", @style = "font-size:medium;color:darkred" })</p>
+                                            }
+                                        </blockquote>
+
+                                    </div>
+
+                                </figure>
+                            </div>
+
+                            @*</div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

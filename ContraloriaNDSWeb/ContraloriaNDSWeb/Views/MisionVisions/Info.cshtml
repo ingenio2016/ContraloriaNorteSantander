@@ -1,0 +1,45 @@
+﻿@model ContraloriaNDSWeb.Models.MisionVision
+
+@{
+    ViewBag.Title = "Misión y Visión";
+}
+
+<section class="slice animate-hover-slide">
+    <div class="w-section inverse blog-grid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @*<div class="w-box blog-post">*@
+                                <div class="col-md-6">
+                                <figure>
+                                    <h1>@Html.DisplayNameFor(model => model.Mision)</h1>
+
+                                    <blockquote>
+                                        <p style="font-size:medium;color:black;text-align:justify">@Model.Mision</p>
+
+                                    </blockquote>
+
+                                </figure>
+                                </div>
+                                <div class="col-md-6">
+                                    <figure>
+                                        <h1>@Html.DisplayNameFor(model => model.Vision)</h1>
+
+                                        <blockquote>
+                                            <p style="font-size:medium; color:black;text-align:justify">@Model.Vision</p>
+
+                                    </blockquote>
+
+                                </figure>
+                                    </div>
+                            </div>
+                        @*</div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+</section>

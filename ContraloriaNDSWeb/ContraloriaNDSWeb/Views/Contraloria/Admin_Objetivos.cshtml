@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ContraloriaNDSWeb.Models.Objetivo>
+
+@{
+    ViewBag.Title = "Contraloría";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Objetivos</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Registro", "Objetivo_Crear", new { }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Objetivo_Editar", new { id = item.ObjetivoId }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Detalle", "Objetivo_Detalle", new { id = item.ObjetivoId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Borrar", "Objetivo_Borrar", new { id=item.ObjetivoId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

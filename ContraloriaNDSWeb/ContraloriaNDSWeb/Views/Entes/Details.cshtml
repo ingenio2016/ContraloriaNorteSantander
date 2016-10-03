@@ -1,0 +1,29 @@
+﻿@model ContraloriaNDSWeb.Models.Entes
+
+@{
+    ViewBag.Title = "Entes Descentralizados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Administración Web</h2>
+
+<div>
+    <h4>Información del Ente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+      
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.EntesId }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Volver al Listado", "Index", new { }, new { @class = "btn btn-success" })
+</p>

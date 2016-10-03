@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ContraloriaNDSWeb.Models.PoliticasCalidad>
+
+@{
+    ViewBag.Title = "Contraloría";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Políticas de Calidad</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Registro", "PoliticasCalidad_Crear", new { }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+           @Html.ActionLink("Editar", "PoliticasCalidad_Editar", new { id = item.PoliticasCalidadId }, new { @class = "btn btn-warning" }) |
+           @Html.ActionLink("Detalle", "PoliticasCalidad_Detalle", new { id = item.PoliticasCalidadId }, new { @class = "btn btn-info" }) |
+           @Html.ActionLink("Borrar", "PoliticasCalidad_Borrar", new { id = item.PoliticasCalidadId }, new { @class = "btn btn-danger" })
+
+
+        </td>
+    </tr>
+}
+
+</table>

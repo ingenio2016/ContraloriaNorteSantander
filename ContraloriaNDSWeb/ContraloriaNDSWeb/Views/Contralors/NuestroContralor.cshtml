@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ContraloriaNDSWeb.Models.Contralor>
+
+@{
+    ViewBag.Title = "Nuestro Contralor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="slice color-one">
+
+
+    <div class="section-title color-three">
+        <h3>Nuestro Contralor</h3>
+        <div class="indicator-down color-three"></div>
+    </div>
+
+</section>
+<section class="slice">
+    <div class="w-section inverse">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4">
+                            <figure>
+                                @if (!string.IsNullOrEmpty(item.Photo))
+                                {
+                                    <img alt="" src="@Url.Content(item.Photo)" class="img-rounded">
+                                }
+                                else
+                                {
+                                    <img alt="" src="~/Content/Contralor/no-photo.png" class="img-rounded">
+                                }
+                                
+                            </figure>
+                    </div>
+                    <div class="col-md-8">
+                        <h2>@item.FullName</h2>
+
+                        <br />
+                        <p style="font-size:medium;text-align:justify">@item.Resena</p>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+
+</section>

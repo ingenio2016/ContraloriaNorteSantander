@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ContraloriaNDSWeb.Models.ValoresEticos>
+
+@{
+    ViewBag.Title = "ValoresEticos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="slice animate-hover-slide">
+    <div class="w-section inverse blog-grid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @*<div class="w-box blog-post">*@
+                                <div class="col-md-12">
+                                    <figure>
+                                        <h1>Valores Eticos</h1>
+                                        <div class="col-md-12">
+                                            <blockquote>
+
+                                                @foreach (var item in Model)
+                                                {
+                                                    <p style="font-size:large;color:darkblue">@Html.DisplayFor(modelItem => item.Nombre)</p>
+                                                    <br />
+                                                    <p style="font-size:medium;color:black;text-align:justify">@Html.DisplayFor(modelItem => item.Descripcion)</p>
+
+                                                }
+                                            </blockquote>
+
+                                        </div>
+
+                                    </figure>
+                                </div>
+
+                            @*</div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

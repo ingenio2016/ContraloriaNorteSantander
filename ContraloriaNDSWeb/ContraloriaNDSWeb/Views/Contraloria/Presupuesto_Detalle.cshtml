@@ -1,0 +1,37 @@
+﻿@model ContraloriaNDSWeb.Models.Presupuesto
+
+@{
+    ViewBag.Title = "Contraloría";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Administración Web</h2>
+
+<div>
+    <h4>Presupuestos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+      
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adjunto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adjunto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Prepuesto_Editar", new { id = Model.PresupuestoId }, new { @class = "btn btn-primary" })) |
+    @Html.ActionLink("Volver al Listado", "Admin_Presupuesto", new { }, new { @class = "btn btn-success" })
+</p>

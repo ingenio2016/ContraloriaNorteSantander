@@ -1,0 +1,85 @@
+﻿@model ContraloriaNDSWeb.Models.Company
+
+@{
+    ContraloriaNDSWeb.Models.ContraloriandsContext context = new ContraloriaNDSWeb.Models.ContraloriandsContext();
+    var MisionVision = context.MisionVisions.Where(x => x.CompanyId == Model.CompanyId).FirstOrDefault();
+    var Objetivos = context.Objetivoes.Where(x => x.CompanyId == Model.CompanyId).ToList().OrderBy(x=>x.Descripcion);
+    var Compromisos = context.Compromisoes.Where(x => x.CompanyId == Model.CompanyId).ToList().OrderBy(x => x.Descripcion);
+    ViewBag.Title = "Nosotros";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="slice animate-hover-slide">
+    <div class="w-section inverse blog-grid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @*<div class="w-box blog-post">*@
+                                <div class="col-md-12">
+                                    <figure>
+                                        
+                                        <div class="col-md-6">
+                                            <h1>Misión</h1>
+                                               <blockquote>
+                                                    <p style="font-size:medium;color:black;text-align:justify">@MisionVision.Mision</p>
+
+                                                </blockquote>
+                                            
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h1>Visión</h1>
+                                            <blockquote>
+                                                <p style="font-size:medium;color:black;text-align:justify">@MisionVision.Vision</p>
+
+                                            </blockquote>
+
+                                        </div>
+                                        
+                                    </figure>
+                                </div>
+                                <div class="col-md-12">
+                                    <figure>
+                                        
+                                        <div class="col-md-6">
+                                            <h1>Objetivos</h1>
+                                            @foreach (var itemObjetivos in Objetivos)
+                                            {
+                                            <blockquote>
+                                                <p style="font-size:medium;color:black;text-align:justify">@itemObjetivos.Descripcion</p>
+
+                                            </blockquote>
+                                            }
+                                        </div>
+                                        <div class="col-md-6"><br /><br />
+                                            <img src="~/Content/WebImages/Equipo de trabajo de la Contraloría General del Departamento Norte de Santander.jpg" class="img img-rounded" />
+                                            </div>
+</figure>
+                                </div>
+                                <div class="col-md-12">
+                                    <figure>
+                                            <div class="col-md-12">
+                                                <h1>Compromisos</h1>
+
+                                                @foreach (var itemCompromisos in Compromisos)
+                                                {
+                                                    <blockquote>
+                                                        <p style="font-size:medium;color:black;text-align:justify">@itemCompromisos.Descripcion</p>
+
+                                                    </blockquote>
+                                                }
+                                            </div>
+
+
+</figure>
+                                </div>
+                            @*</div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

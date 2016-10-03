@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ContraloriaNDSWeb.Models.Presupuesto>
+
+@{
+    ViewBag.Title = "Contraloría";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Presupuestos</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Registro", "Presupuesto_Crear", new { }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adjunto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @if (!string.IsNullOrEmpty(item.Adjunto))
+            {
+                <a class="btn btn-link" href="@Url.Content(item.Adjunto)" target="_blank">@Html.DisplayFor(modelItem => item.Descripcion)</a>
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Presupuesto_Editar", new { id = item.PresupuestoId }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Detalle", "Presupuesto_Detalle", new { id = item.PresupuestoId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Borrar", "Presupuesto_Borrar", new { id = item.PresupuestoId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

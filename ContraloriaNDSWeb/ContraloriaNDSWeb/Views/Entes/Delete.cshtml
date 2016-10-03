@@ -1,0 +1,34 @@
+﻿@model ContraloriaNDSWeb.Models.Entes
+
+@{
+    ViewBag.Title = "Entes Descentralizados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Administración Web</h2>
+
+<h3>Está seguro que desea borrar este registro?</h3>
+<div>
+    <h4>Borrar ente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver al Listado", "Index", new { }, new { @class = "btn btn-success" })
+        </div>
+    }
+</div>

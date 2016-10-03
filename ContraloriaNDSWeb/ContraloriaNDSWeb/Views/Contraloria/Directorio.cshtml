@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ContraloriaNDSWeb.Models.Directorio>
+
+@{
+    ViewBag.Title = "Directorio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="slice color-one">
+
+
+    <div class="section-title color-three">
+        <h3>Directorio</h3>
+        <div class="indicator-down color-three"></div>
+    </div>
+
+</section>
+<section class="slice">
+    <div class="w-section inverse">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-3">
+                        <div class="w-box">
+                            <figure>
+                                @if (!string.IsNullOrEmpty(item.Logo))
+                                {
+                                    <img alt="" src="@Url.Content(item.Logo)" class="img-responsive">
+                                }
+                                else
+                                {
+                                    <img alt="" src="~/Content/Funcionarios/no-photo.png" class="img-responsive">
+                                }
+                                <h2>@item.Nombre<small>@item.Cargo</small></h2>
+
+                                <p class="social-icons">
+                                <p><a><i class="fa fa-envelope-o fa-2x"></i></a> <a href="mailto:@item.Email" title="Notificaciones Juridicas">@item.Email</a></p>
+                                <p><a><i class="fa fa-phone fa-2x"></i></a> @item.Phone1 | @item.Phone2 | Ext. @item.Extension</p>
+                                </p>
+                            </figure>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+
+</section>

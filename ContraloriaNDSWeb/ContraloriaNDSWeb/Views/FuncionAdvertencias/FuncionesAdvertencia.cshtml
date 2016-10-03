@@ -1,0 +1,47 @@
+﻿@model ContraloriaNDSWeb.Models.Company
+
+@{
+    ViewBag.Title = "Funciones de Advertencias";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ContraloriaNDSWeb.Models.ContraloriandsContext db = new ContraloriaNDSWeb.Models.ContraloriandsContext();
+    var Funciones = db.FuncionAdvertencias.Where(x => x.CompanyId == Model.CompanyId).ToList();
+    var years = db.Years.Where(x => x.CompanyId == Model.CompanyId).ToList();
+}
+
+<section class="slice animate-hover-slide">
+    <div class="w-section inverse blog-grid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @*<div class="w-box blog-post">*@
+                            <div class="col-md-12">
+                                <figure>
+                                    <h1>Funciones de Advertencia</h1>
+                                    <div class="col-md-12">
+                                        <blockquote>
+                                            @foreach (var ano in years)
+                                            {
+                                                var funciones = db.FuncionAdvertencias.Where(x => x.Year.Name == ano.Name);
+
+                                                <p>@Html.ActionLink("Funciones de Advertencia año " + ano.Name + " (" + funciones.Count() + ")", "Funciones", "FuncionAdvertencias", new { id = ano.Name }, new { @class = "btn btn-link", @style = "font-size:medium;color:darkred" })</p>
+                                            }
+                                        </blockquote>
+
+                                    </div>
+
+                                </figure>
+                            </div>
+
+                            
+
+                            @*</div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

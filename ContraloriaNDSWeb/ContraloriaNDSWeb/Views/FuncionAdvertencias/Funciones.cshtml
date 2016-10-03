@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ContraloriaNDSWeb.Models.FuncionAdvertencia>
+
+@{
+    ViewBag.Title = "Funciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="slice animate-hover-slide">
+    <div class="w-section inverse blog-grid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @*<div class="w-box blog-post">*@
+                            <div class="col-md-12">
+                                <figure>
+                                    <h1>Funciones de Advertencia del año @ViewBag.Year</h1>
+                                    <div class="col-md-12">
+                                        @foreach (var item in Model)
+                                        {
+                                            <blockquote>
+                                                <h3>@item.Descripcion</h3>
+                                                <p style="font-size:medium;color:black;text-align:justify">@item.Observacion</p>
+                                                <p style="font-size:medium;color:darkred;text-align:justify">
+                                                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i><a style="font-size:medium;color:darkred" class="btn btn-link" href="@Url.Content(item.Adjunto)" target="_blank">@Html.DisplayFor(modelItem => item.Descripcion)</a>
+                                                </p>   
+                                            </blockquote>
+                                        }
+                                    </div>
+
+                                </figure>
+                            </div>
+
+                            @*</div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

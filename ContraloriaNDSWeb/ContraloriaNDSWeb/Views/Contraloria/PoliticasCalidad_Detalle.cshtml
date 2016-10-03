@@ -1,0 +1,35 @@
+﻿@model ContraloriaNDSWeb.Models.PoliticasCalidad
+
+@{
+    ViewBag.Title = "Contraloría";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Administración Web</h2>
+
+<div>
+    <h4>Políticas de Calidad</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Company.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "PoliticasCalidad_Editar", new { id = Model.PoliticasCalidadId }, new { @class = "btn btn-primary" })) |
+    @Html.ActionLink("Volver al Listado", "Admin_PoliticasCalidad", new { }, new { @class = "btn btn-success" })
+</p>

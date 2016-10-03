@@ -1,0 +1,23 @@
+﻿@model ContraloriaNDSWeb.Models.Company
+
+@{
+    ViewBag.Title = "Administración Sección Institucional";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Administración Institucional</h2>
+
+<blockquote>
+        <p>@Html.ActionLink("Nosotros", "Admin_Nosotros", "Contraloria")</p>
+        <p>@Html.ActionLink("Planes y Programas", "Planes", "Contraloria")</p>
+        <p>@Html.ActionLink("Principios Eticos", "Admin_PrincipiosEticos", "Contraloria")</p>
+        <p>@Html.ActionLink("Valores Eticos", "Admin_ValoresEticos", "Contraloria")</p>
+        <p>@Html.ActionLink("Políticas de Calidad", "Admin_PoliticasCalidad", "Contraloria")</p>
+        <p>@Html.ActionLink("Directorio", "Admin_Directorio", "Contraloria")</p>
+        <p>@Html.ActionLink("Nuestro Contralor", "Index", "Contralors")</p>
+        <p>@Html.ActionLink("Presupuesto", "Admin_Presupuesto", "Contraloria")</p>
+        <p>@Html.ActionLink("Recursos Humanos", "Index", "RecursoHumanoes")</p>
+        <p>@Html.ActionLink("Controlamos a", "Admin_Controlamosa", "Contraloria")</p>
+
+</blockquote>
+

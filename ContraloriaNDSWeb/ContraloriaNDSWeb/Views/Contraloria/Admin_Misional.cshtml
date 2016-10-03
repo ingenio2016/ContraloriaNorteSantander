@@ -1,0 +1,17 @@
+﻿@model ContraloriaNDSWeb.Models.Company
+
+@{
+    ViewBag.Title = "Administración Sección Misional";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Administración Misional</h2>
+
+<blockquote>
+    <p>@Html.ActionLink("Informes de Gestión", "Index", "InformeGestions")</p>
+    <p>@Html.ActionLink("Control Interno", "Index", "ControlInternoes")</p>
+    <p>@Html.ActionLink("Funciones de Advertencia", "Index", "FuncionAdvertencias")</p>
+    <p>@Html.ActionLink("Beneficios del Control Fiscal", "Index", "BeneficioControlFiscals")</p>
+
+</blockquote>
+

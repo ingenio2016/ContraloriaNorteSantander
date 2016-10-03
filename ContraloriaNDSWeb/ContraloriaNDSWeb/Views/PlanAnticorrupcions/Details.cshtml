@@ -1,0 +1,48 @@
+﻿@model ContraloriaNDSWeb.Models.PlanAnticorrupcion
+
+@{
+    ViewBag.Title = "Planes anticorrupción";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Administración Web</h2>
+
+<div>
+    <h4>Detalles del Plan Anticorrupción</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            Vigencia @Html.DisplayNameFor(model => model.Year.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adjunto)
+        </dt>
+
+        <dd>
+            @if (!string.IsNullOrEmpty(Model.Adjunto))
+            {
+                <a class="btn btn-link" href="@Url.Content(Model.Adjunto)" target="_blank">@Html.DisplayFor(modelItem => Model.Descripcion)</a>
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.PlanAnticorrupcionId }, new { @class = "btn btn-primary" })) |
+    @Html.ActionLink("Volver al Listado", "Index", new { }, new { @class = "btn btn-success" })
+</p>

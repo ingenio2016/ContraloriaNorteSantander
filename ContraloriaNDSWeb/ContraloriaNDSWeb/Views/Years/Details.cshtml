@@ -1,0 +1,35 @@
+﻿@model ContraloriaNDSWeb.Models.Year
+
+@{
+    ViewBag.Title = "Años";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Administración de años de Trabajo</h2>
+
+<div>
+    <h4>Información del año</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Company.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.YearId }, new { @class = "btn btn-danger" }) |
+    @Html.ActionLink("Volver al Listado", "Index", new { }, new { @class = "btn btn-success" })
+</p>

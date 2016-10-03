@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ContraloriaNDSWeb.Models.PrincipiosEticos>
+
+@{
+    ViewBag.Title = "PrincipiosEticos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PrincipiosEticos</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Registro", "PrincipiosEticos_Crear", new { }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "PrincipiosEticos_Editar", new { id = item.PrincipiosEticosId }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Detalle", "PrincipiosEticos_Detalle", new { id = item.PrincipiosEticosId }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Borrar", "PrincipiosEticos_Borrar", new { id = item.PrincipiosEticosId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ContraloriaNDSWeb.Models.PlanesProgramas>
+
+@{
+    ViewBag.Title = "Contraloría";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Planes de Programa</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Registro", "PlanesProgramas_Crear", new { }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adjunto)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                <a class="btn btn-link" href="@Url.Content(item.Adjunto)">@Html.DisplayFor(modelItem => item.Descripcion)</a>
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "PlanesProgramas_Editar", new { id = item.PlanesProgramasId }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Detalle", "PlanesProgramas_Detalle", new { id = item.PlanesProgramasId }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Borrar", "PlanesProgramas_Borrar", new { id = item.PlanesProgramasId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+

@@ -1,0 +1,15 @@
+﻿@model ContraloriaNDSWeb.Models.Company
+
+@{
+    ViewBag.Title = "Administración de Planes y Programas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Administración de Planes y Programas</h2>
+
+<blockquote>
+    <p>@Html.ActionLink("Planes y programas", "Admin_PlanesProgramas", "Contraloria")</p>
+    <p>@Html.ActionLink("Planes de Acción", "Index", "PlanesAccions")</p>
+    <p>@Html.ActionLink("Planes Anticorrupción", "Index", "PlanAnticorrupcions")</p>
+</blockquote>
+

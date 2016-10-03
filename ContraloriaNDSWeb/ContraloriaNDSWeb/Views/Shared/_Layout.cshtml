@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Contraloria Norte de Santander</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery.fancybox.css?v=2.1.5" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="~/Content/global-style.css" rel="stylesheet" />
+    <link href="~/Content/skin-four.css" rel="stylesheet" />
+    <link href="~/Content/fractionslider.css" rel="stylesheet" />
+    <link href="~/Content/sb-admin-2.css" rel="stylesheet" />
+    <link rel="icon" href="~/Content/WebImages/favicon.png" type="image/png">
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+
+</head>
+<body>
+    
+    <div id="navbar" class="navbar navbar-white" role="navigation">
+        <div class="">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                    <img id="logo" style="width:180px;height:auto" src="~/Content/WebImages/logo contraloria solo.png" alt="Logo Contraloria NDS">
+                </a>
+
+            </div>
+            <br /><br />
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Institucional <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Nosotros", "Nosotros", "Contraloria")</li>
+                            <li>@Html.ActionLink("Planes y Programas", "PlanesProgramas", "Contraloria")</li>
+                            <li>@Html.ActionLink("Principios Eticos", "PrincipiosEticos", "Contraloria")</li>
+                            <li>@Html.ActionLink("Valores Eticos", "ValoresEticos", "Contraloria")</li>
+                            <li>@Html.ActionLink("Políticas de Calidad", "PoliticasCalidad", "Contraloria")</li>
+                            <li>@Html.ActionLink("Directorio", "Directorio", "Contraloria")</li>
+                            <li>@Html.ActionLink("Organigrama", "Organigrama", "Contraloria")</li>  
+                            <li>@Html.ActionLink("Nuestro Contralor", "NuestroContralor", "Contralors")</li>                            
+                            <li>@Html.ActionLink("Recursos Humanos", "RecursosHumanos", "RecursoHumanoes")</li>
+                            <li>@Html.ActionLink("Controlamos a", "Controlamos", "Contraloria")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misional <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Informes de Gestión", "InformeGestion", "InformeGestions")</li>
+                            <li>@Html.ActionLink("Control Interno", "ControlInterno", "ControlInternoes")</li>
+                            <li>@Html.ActionLink("Funciones de Advertencias", "FuncionesAdvertencia", "FuncionAdvertencias")</li>
+                            <li>@Html.ActionLink("Beneficios del control fiscal", "BeneficiosControlFiscal", "BeneficioControlFiscals")</li>
+                            <li>@Html.ActionLink("Jurisdicción Coactiva", "About", "Home")</li>
+                            <li>@Html.ActionLink("Control Ambiental", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Presupuesto", "Presupuesto", "Contraloria")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Control Fiscal <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Informes de Auditorias", "About", "Home")</li>
+                            <li>@Html.ActionLink("Notificaciones", "About", "Home")</li>
+                            <li><a href="http://www.minhacienda.gov.co/HomeMinhacienda/faces/oracle/webcenter/portalapp/pages/asistenciaentidadesterritoriales.jspx?_afrLoop=293293675013084&_afrWindowMode=0&_afrWindowId=null#!%40%40%3F_afrWindowId%3Dnull%26_afrLoop%3D293293675013084%26_afrWindowMode%3D0%26_adf.ctrl-state%3Dx7atls3ii_118" target="_blank">Apoyo a Entidades Fiscales</a></li>
+                           
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Participación ciudadana <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Veeduría ciudadana", "About", "Home")</li>
+                            <li>@Html.ActionLink("Preguntas Frecuentes", "About", "Home")</li>
+                            <li>@Html.ActionLink("Estado de Denuncias", "About", "Home")</li>
+                            <li>@Html.ActionLink("Trámites y Servicios", "About", "Home")</li>
+                            <li>@Html.ActionLink("Estado de Derechos de Petición", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contralor Estudiantil", "About", "Home")</li>
+
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Normatividad<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Circulares", "About", "Home")</li>
+                            <li>@Html.ActionLink("Decretos", "About", "Home")</li>
+                            <li>@Html.ActionLink("Resoluciones", "About", "Home")</li>
+                            <li>@Html.ActionLink("Leyes", "About", "Home")</li>
+                            <li>@Html.ActionLink("Estado de Derechos de Petición", "About", "Home")</li>
+                            <li>@Html.ActionLink("Normográma", "About", "Home")</li>
+                            <li><a href="http://www.alcaldiabogota.gov.co/sisjur/index.jsp" target="_blank">Normatividad, doctrina y jurisprudencia</a></li>
+                            <li><a href="http://www.nortedesantander.gov.co/Gobernaci%C3%B3n/Documentos-de-la-Entidad/Gacetas" target="_blank">Gaceta Departamental</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contratación<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://www.colombiacompra.gov.co/" target="_blank">Colombia compra eficiente</a></li>
+                            <li>@Html.ActionLink("Informes de Contratación", "About", "Home")</li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Convocatorias<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Convocatorias de empleo", "About", "Home")</li>
+                            <li>@Html.ActionLink("Convocatorias públicas", "About", "Home")</li>
+
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </div>
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Años", "Index", "Years")</li>
+                                <li>@Html.ActionLink("Ciudades", "Index", "Cities")</li>
+                                <li>@Html.ActionLink("Contralorias", "Index", "Companies")</li>
+                                <li>@Html.ActionLink("Departamentos", "Index", "Departments")</li>
+                                <li>@Html.ActionLink("Usuarios", "Index", "Users")</li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </div><!--/.nav-collapse -->
+            }
+            @if (User.IsInRole("User"))
+            {
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración web<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Institucional", "Admin_Institucional", "Contraloria")</li>
+                                <li>@Html.ActionLink("Misional", "Admin_Misional", "Contraloria")</li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </div><!--/.nav-collapse -->
+            }
+        </div>
+    </div>
+
+
+    <div style="background: #ffffff url('../../Content/WebImages/LOGO-01.jpg'); 
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment:fixed;">
+        @RenderBody()
+
+        <section class="slice padding-15 banner-1">
+            <div class="container">
+                <div class="row-fluid">
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <div class="head-title has-controls">
+                            <h3>
+                                Aliados Institucionales
+                            </h3>
+                            <!-- Carousel controls -->
+                            <div class="carousel-top-controls">
+                                <a data-slide="prev" href="#carouselClients"><i class="fa fa-angle-left"></i></a>
+                                <a data-slide="next" href="#carouselClients"><i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div id="carouselClients" class="carousel slide carousel-clients">
+
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+                                            <div class="item-inner">
+                                                <a href="http://www.contraloriagen.gov.co/" target="_blank">
+                                                    <img alt="" src="~/Images/Entes/contraloriaGeneral.png">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+                                            <div class="item-inner">
+                                                <a href="http://www.contaduria.gov.co/wps/portal/internetes/home/internet/home/!ut/p/b1/04_Sj9CPykssy0xPLMnMz0vMAfGjzOINzPyDTEPdQoONTA1MDBwNTA0tTYL8jAwCTIAKIkEKcABHA0L6_Tzyc1P1C3IjygHTUGxv/dl4/d5/L2dJQSEvUUt3QS80SmtFL1o2XzA2T1I1VUZVUzI1MDQwQTA1MTk0Uk4yMFA0/" target="_blank">
+                                                    <img alt="" src="~/Images/Entes/ContaduriaGeeral.jpg">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+                                            <div class="item-inner">
+                                                <a href="http://www.procuraduria.gov.co/" target="_blank">
+                                                    <img alt="" src="~/Images/Entes/procuraduria.jpg">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+                                            <div class="item-inner">
+                                                <a href="http://www.fiscalia.gov.co/colombia/" target="_blank">
+                                                    <img alt="" src="~/Images/Entes/fiscalia.png">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+                                            <div class="item-inner">
+                                                <a href="#">
+                                                    <img alt="" src="~/Images/Entes/gobenlineass.png">
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+                                            <div class="item-inner">
+                                                <a href="http://www.nortedesantander.gov.co/">
+                                                    <img alt="" src="~/Images/Entes/gobnorte.png">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+                                            <div class="item-inner">
+                                                <a href="http://www.urnadecristal.gov.co/">
+                                                    <img alt="" src="~/Images/Entes/urna.png">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+                                            <div class="item-inner">
+                                                <a href="http://horalegal.inm.gov.co/">
+                                                    <img alt="" src="~/Images/Entes/LOGO-METROLOGIA.jpg">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    
+   
+    
+    <footer style="background-color:#001645">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="col">
+                        <h4>Contáctenos</h4>
+                        <ul>
+                            <li>Av 5 # 11 - 20 Pisos 2 y 3 Edif. Antiguo Banco de la República</li>
+                            <li>Teléfono 5835840 | Fax 835846 </li>
+                            <li>Notificaciones Judiciales: <a href="mailto:juridica@contraloriands.gov.co" title="Notificaciones Juridicas">juridica@contraloriands.gov.co</a></li>
+                            <li>Administrador: <a href="mailto: sistemas@contraloriands.gov.co" title="Administrador"> sistemas@contraloriands.gov.co</a></li>
+                            <li>San José de Cúcuta - Norte de Santander - Colombia</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-3">
+                    <div class="col col-social-icons">
+                        <h4>Síguenos</h4>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <br /><br />
+                    <img src="~/Content/WebImages/slogan control fiscal eficiente.png" class="img img-responsive" />
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>@Html.Partial("_LoginPartial")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        
+
+        <hr />
+
+            <div class="col-lg-12 copyright">
+                <div class="col-lg-7">
+                    <p>Todos los derechos reservados @DateTime.Now.Year. Contraloria Departamental del Norte de Santander</p><a href="#">Políticas de Uso</a>
+                </div>
+                <div class="col-lg-5">
+                    <p style="text-align:right">Desarrollado por <a href="http://www.nortetic.co">Nortetic SAS</a></p>
+                </div>
+            </div>
+
+
+        </div>
+    </footer>
+
+    <script src="~/Scripts/js/jquery.js"></script>
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/js/modernizr.custom.js"></script>
+    <script src="~/Scripts/js/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script src="~/Scripts/js/jquery.cookie.js"></script>
+    <script src="~/Scripts/js/jquery.easing.js"></script>
+
+    <script src="~/Scripts/js/masonry.js"></script>
+    <script src="~/Scripts/js/jquery.ui.totop.min.js"></script>
+    <script src="~/Scripts/js/jquery.mixitup.js"></script>
+    <script src="~/Scripts/js/jquery.mixitup.init.js"></script>
+    <script src="~/Scripts/js/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script src="~/Scripts/js/jquery.ebright.custom.js"></script>
+
+    <script src="~/Scripts/js/jquery.fractionslider.min.js"></script>
+    <script src="~/Scripts/js/jquery.fractionslider.init.js"></script>
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

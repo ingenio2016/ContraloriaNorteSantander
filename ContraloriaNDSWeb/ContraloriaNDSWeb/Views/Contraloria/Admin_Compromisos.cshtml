@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ContraloriaNDSWeb.Models.Compromiso>
+
+@{
+    ViewBag.Title = "Contraloría";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Compromisos</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Registro", "Compromisos_Crear", new { }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Compromisos_Editar", new { id = item.CompromisoId }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Detalle", "Compromisos_Detalle", new { id = item.CompromisoId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Borrar", "Compromisos_Borrar", new { id = item.CompromisoId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
