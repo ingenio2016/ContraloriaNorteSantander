@@ -73,6 +73,12 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                jurisdiccionCoactiva.Date = Convert.ToDateTime(fecha);
+                jurisdiccionCoactiva.Autor = autor.FullName;
+                jurisdiccionCoactiva.DateEdition = Convert.ToDateTime(fecha);
+                jurisdiccionCoactiva.AutorEdition = autor.FullName;
                 db.JurisdiccionCoactivas.Add(jurisdiccionCoactiva);
                 try
                 {
@@ -147,6 +153,11 @@ namespace ContraloriaNDSWeb.Controllers
                         db.SaveChanges();
                     }
                 }
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+               
+                jurisdiccionCoactiva.DateEdition = Convert.ToDateTime(fecha);
+                jurisdiccionCoactiva.AutorEdition = autor.FullName;
                 db.Entry(jurisdiccionCoactiva).State = EntityState.Modified;
                 try
                 {

@@ -10,12 +10,11 @@ using ContraloriaNDSWeb.Models;
 
 namespace ContraloriaNDSWeb.Controllers
 {
-    
-    public class MisionVisionsController : Controller
+    public class DenunciasCategoriasController : Controller
     {
         private ContraloriandsContext db = new ContraloriandsContext();
 
-        [Authorize(Roles = "User")]
+        // GET: DenunciasCategorias
         public ActionResult Index()
         {
             var user = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
@@ -23,37 +22,26 @@ namespace ContraloriaNDSWeb.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            var misionvision = db.MisionVisions.Where(x => x.CompanyId == user.CompanyId);
-            return View(misionvision.ToList());
+            var categorias = db.DenunciasCategorias.Where(x => x.CompanyId == user.CompanyId);
+            return View(categorias.ToList());
         }
 
-        public ActionResult Info()
-        {
-            var contraloria = db.Companies.Where(x => x.CompanyId == 2).FirstOrDefault();
-            if (contraloria == null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            var misionvision = db.MisionVisions.Where(x => x.CompanyId == contraloria.CompanyId);
-            return View(misionvision.FirstOrDefault());
-        }
-
-        [Authorize(Roles = "User")]
+        // GET: DenunciasCategorias/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MisionVision misionVision = db.MisionVisions.Find(id);
-            if (misionVision == null)
+            DenunciasCategorias denunciasCategorias = db.DenunciasCategorias.Find(id);
+            if (denunciasCategorias == null)
             {
                 return HttpNotFound();
             }
-            return View(misionVision);
+            return View(denunciasCategorias);
         }
 
-        [Authorize(Roles = "User")]
+        // GET: DenunciasCategorias/Create
         public ActionResult Create()
         {
             var user = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
@@ -61,33 +49,36 @@ namespace ContraloriaNDSWeb.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            var misionvision = new MisionVision { CompanyId = user.CompanyId, };
-            return View(misionvision);
+            var categoria = new DenunciasCategorias { CompanyId = user.CompanyId, };
+            return View(categoria);
         }
 
-        [Authorize(Roles = "User")]
+        // POST: DenunciasCategorias/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(MisionVision misionVision)
+        public ActionResult Create(DenunciasCategorias denunciasCategorias)
         {
             if (ModelState.IsValid)
             {
                 var fecha = DateTime.Now;
                 var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
-                misionVision.Date = Convert.ToDateTime(fecha);
-                misionVision.Autor = autor.FullName;
-                misionVision.DateEdition = Convert.ToDateTime(fecha);
-                misionVision.AutorEdition = autor.FullName;
-                db.MisionVisions.Add(misionVision);
+                denunciasCategorias.Date = Convert.ToDateTime(fecha);
+                denunciasCategorias.Autor = autor.FullName;
+                denunciasCategorias.DateEdition = Convert.ToDateTime(fecha);
+                denunciasCategorias.AutorEdition = autor.FullName;
+                db.DenunciasCategorias.Add(denunciasCategorias);
                 try
                 {
                     db.SaveChanges();
+
                 }
                 catch (Exception ex)
                 {
                     if (ex.InnerException != null &&
-                                                                                ex.InnerException.InnerException != null &&
-                                                                                ex.InnerException.InnerException.Message.Contains("_Index"))
+                                                                                                                                                                ex.InnerException.InnerException != null &&
+                                                                                                                                                                ex.InnerException.InnerException.Message.Contains("_Index"))
                     {
                         ModelState.AddModelError(string.Empty, "Hay varios registros con el mismo valor");
 
@@ -100,48 +91,48 @@ namespace ContraloriaNDSWeb.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "Name", misionVision.CompanyId);
-            return View(misionVision);
+            return View(denunciasCategorias);
         }
 
-        [Authorize(Roles = "User")]
+        // GET: DenunciasCategorias/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MisionVision misionVision = db.MisionVisions.Find(id);
-            if (misionVision == null)
+            DenunciasCategorias denunciasCategorias = db.DenunciasCategorias.Find(id);
+            if (denunciasCategorias == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "Name", misionVision.CompanyId);
-            return View(misionVision);
+            return View(denunciasCategorias);
         }
 
-        [Authorize(Roles = "User")]
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(MisionVision misionVision)
+        public ActionResult Edit(DenunciasCategorias denunciasCategorias)
         {
             if (ModelState.IsValid)
             {
                 var fecha = DateTime.Now;
                 var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
-               
-                misionVision.DateEdition = Convert.ToDateTime(fecha);
-                misionVision.AutorEdition = autor.FullName;
-                db.Entry(misionVision).State = EntityState.Modified;
+
+                denunciasCategorias.DateEdition = Convert.ToDateTime(fecha);
+                denunciasCategorias.AutorEdition = autor.FullName;
+                db.Entry(denunciasCategorias).State = EntityState.Modified;
                 try
                 {
                     db.SaveChanges();
+
                 }
                 catch (Exception ex)
                 {
+
                     if (ex.InnerException != null &&
-                                                                                ex.InnerException.InnerException != null &&
-                                                                                ex.InnerException.InnerException.Message.Contains("_Index"))
+                                                                                                                                            ex.InnerException.InnerException != null &&
+                                                                                                                                            ex.InnerException.InnerException.Message.Contains("_Index"))
                     {
                         ModelState.AddModelError(string.Empty, "Hay varios registros con el mismo valor");
 
@@ -153,41 +144,41 @@ namespace ContraloriaNDSWeb.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            
-            return View(misionVision);
+            return View(denunciasCategorias);
         }
 
-        [Authorize(Roles = "User")]
+        // GET: DenunciasCategorias/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MisionVision misionVision = db.MisionVisions.Find(id);
-            if (misionVision == null)
+            DenunciasCategorias denunciasCategorias = db.DenunciasCategorias.Find(id);
+            if (denunciasCategorias == null)
             {
                 return HttpNotFound();
             }
-            return View(misionVision);
+            return View(denunciasCategorias);
         }
 
-        [Authorize(Roles = "User")]
+        // POST: DenunciasCategorias/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            MisionVision misionVision = db.MisionVisions.Find(id);
-            db.MisionVisions.Remove(misionVision);
+            DenunciasCategorias denunciasCategorias = db.DenunciasCategorias.Find(id);
+            db.DenunciasCategorias.Remove(denunciasCategorias);
             try
             {
                 db.SaveChanges();
+
             }
             catch (Exception ex)
             {
                 if (ex.InnerException != null &&
-                                                    ex.InnerException.InnerException != null &&
-                                                    ex.InnerException.InnerException.Message.Contains("REFERENCE"))
+                                                                                                                   ex.InnerException.InnerException != null &&
+                                                                                                                   ex.InnerException.InnerException.Message.Contains("REFERENCE"))
                 {
                     ModelState.AddModelError(string.Empty, "El registro no se puede eliminar porque tiene registros relacionados");
 

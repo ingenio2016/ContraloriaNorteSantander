@@ -58,15 +58,19 @@ namespace ContraloriaNDSWeb.Controllers
             return View();
         }
 
-        // POST: Users/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(User user)
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                user.Date = Convert.ToDateTime(fecha);
+                user.Autor = autor.FullName;
+                user.DateEdition = Convert.ToDateTime(fecha);
+                user.AutorEdition = autor.FullName;
                 db.Users.Add(user);
                 try
                 {
@@ -186,7 +190,12 @@ namespace ContraloriaNDSWeb.Controllers
                 {
                     UsersHelper.UpdateUserName(currentUser.UserName, user.UserName);
                 }
-
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                user.Date = Convert.ToDateTime(fecha);
+                user.Autor = autor.FullName;
+                user.DateEdition = Convert.ToDateTime(fecha);
+                user.AutorEdition = autor.FullName;
                 db.Entry(user).State = EntityState.Modified;
                 try
                 {

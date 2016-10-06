@@ -164,6 +164,12 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                objetivo.Date = Convert.ToDateTime(fecha);
+                objetivo.Autor = autor.FullName;
+                objetivo.DateEdition = Convert.ToDateTime(fecha);
+                objetivo.AutorEdition = autor.FullName;
                 db.Objetivoes.Add(objetivo);
                 try
                 {
@@ -212,6 +218,11 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+               
+                objetivo.DateEdition = Convert.ToDateTime(fecha);
+                objetivo.AutorEdition = autor.FullName;
                 db.Entry(objetivo).State = EntityState.Modified;
                 try
                 {
@@ -340,6 +351,12 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                planesprogramas.Date = Convert.ToDateTime(fecha);
+                planesprogramas.Autor = autor.FullName;
+                planesprogramas.DateEdition = Convert.ToDateTime(fecha);
+                planesprogramas.AutorEdition = autor.FullName;
                 db.PlanesProgramas.Add(planesprogramas);
                 try
                 {
@@ -417,6 +434,11 @@ namespace ContraloriaNDSWeb.Controllers
                         db.SaveChanges();
                     }
                 }
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+               
+                planesprogramas.DateEdition = Convert.ToDateTime(fecha);
+                planesprogramas.AutorEdition = autor.FullName;
                 db.Entry(planesprogramas).State = EntityState.Modified;
                 try
                 {
@@ -555,6 +577,12 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                principioseticos.Date = Convert.ToDateTime(fecha);
+                principioseticos.Autor = autor.FullName;
+                principioseticos.DateEdition = Convert.ToDateTime(fecha);
+                principioseticos.AutorEdition = autor.FullName;
                 db.PrincipiosEticos.Add(principioseticos);
                 try
                 {
@@ -603,6 +631,11 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                
+                principioseticos.DateEdition = Convert.ToDateTime(fecha);
+                principioseticos.AutorEdition = autor.FullName;
                 db.Entry(principioseticos).State = EntityState.Modified;
                 try
                 {
@@ -731,6 +764,12 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                valores.Date = Convert.ToDateTime(fecha);
+                valores.Autor = autor.FullName;
+                valores.DateEdition = Convert.ToDateTime(fecha);
+                valores.AutorEdition = autor.FullName;
                 db.ValoresEticos.Add(valores);
                 try
                 {
@@ -779,6 +818,11 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+               
+                valores.DateEdition = Convert.ToDateTime(fecha);
+                valores.AutorEdition = autor.FullName;
                 db.Entry(valores).State = EntityState.Modified;
                 try
                 {
@@ -906,6 +950,12 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                politica.Date = Convert.ToDateTime(fecha);
+                politica.Autor = autor.FullName;
+                politica.DateEdition = Convert.ToDateTime(fecha);
+                politica.AutorEdition = autor.FullName;
                 db.PoliticasCalidads.Add(politica);
                 try
                 {
@@ -954,6 +1004,11 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                
+                politica.DateEdition = Convert.ToDateTime(fecha);
+                politica.AutorEdition = autor.FullName;
                 db.Entry(politica).State = EntityState.Modified;
                 try
                 {
@@ -1081,6 +1136,12 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                compromiso.Date = Convert.ToDateTime(fecha);
+                compromiso.Autor = autor.FullName;
+                compromiso.DateEdition = Convert.ToDateTime(fecha);
+                compromiso.AutorEdition = autor.FullName;
                 db.Compromisoes.Add(compromiso);
                 try
                 {
@@ -1129,6 +1190,11 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+               
+                compromiso.DateEdition = Convert.ToDateTime(fecha);
+                compromiso.AutorEdition = autor.FullName;
                 db.Entry(compromiso).State = EntityState.Modified;
                 try
                 {
@@ -1258,6 +1324,12 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                directorio.Date = Convert.ToDateTime(fecha);
+                directorio.Autor = autor.FullName;
+                directorio.DateEdition = Convert.ToDateTime(fecha);
+                directorio.AutorEdition = autor.FullName;
                 db.Directorios.Add(directorio);
                 try
                 {
@@ -1330,6 +1402,11 @@ namespace ContraloriaNDSWeb.Controllers
                         directorio.Logo = pic;
                     }
                 }
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                
+                directorio.DateEdition = Convert.ToDateTime(fecha);
+                directorio.AutorEdition = autor.FullName;
                 db.Entry(directorio).State = EntityState.Modified;
                 try
                 {
@@ -1466,6 +1543,12 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                presupuesto.Date = Convert.ToDateTime(fecha);
+                presupuesto.Autor = autor.FullName;
+                presupuesto.DateEdition = Convert.ToDateTime(fecha);
+                presupuesto.AutorEdition = autor.FullName;
                 db.Presupuestoes.Add(presupuesto);
                 try
                 {
@@ -1543,6 +1626,11 @@ namespace ContraloriaNDSWeb.Controllers
                         db.SaveChanges();
                     }
                 }
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+               
+                presupuesto.DateEdition = Convert.ToDateTime(fecha);
+                presupuesto.AutorEdition = autor.FullName;
                 db.Entry(presupuesto).State = EntityState.Modified;
                 try
                 {

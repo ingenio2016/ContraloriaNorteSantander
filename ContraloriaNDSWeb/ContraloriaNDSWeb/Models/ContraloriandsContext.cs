@@ -82,5 +82,7 @@ namespace ContraloriaNDSWeb.Models
         public System.Data.Entity.DbSet<ContraloriaNDSWeb.Models.AuditoriaExterna> AuditoriaExternas { get; set; }
 
         public System.Data.Entity.DbSet<ContraloriaNDSWeb.Models.Notificacion> Notificacions { get; set; }
+
+        public System.Data.Entity.DbSet<ContraloriaNDSWeb.Models.DenunciasCategorias> DenunciasCategorias { get; set; }
     }
 }

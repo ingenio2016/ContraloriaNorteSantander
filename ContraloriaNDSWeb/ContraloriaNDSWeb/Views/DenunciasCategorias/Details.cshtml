@@ -1,23 +1,22 @@
-﻿@model ContraloriaNDSWeb.Models.Objetivo
+﻿@model ContraloriaNDSWeb.Models.DenunciasCategorias
 
 @{
-    ViewBag.Title = "Contraloría";
+    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Administración Web</h2>
 
 <div>
-    <h4>Información del Objetivo</h4>
+    <h4>Detalle de la Categoría</h4>
     <hr />
     <dl class="dl-horizontal">
-       
         <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
+            @Html.DisplayNameFor(model => model.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Descripcion)
+            @Html.DisplayFor(model => model.Name)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Date)
@@ -43,13 +42,9 @@
         <dt>
             @Html.DisplayNameFor(model => model.AutorEdition)
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AutorEdition)
-        </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Objetivo_Editar", new { id = Model.ObjetivoId }, new { @class = "btn btn-primary" }) |
-    @Html.ActionLink("Volver al Listado", "Admin_Objetivos", new { }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Editar", "Edit", new { id = Model.DenunciasCategoriasId }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Volver al Listado", "Index", new { }, new { @class = "btn btn-success" })
 </p>

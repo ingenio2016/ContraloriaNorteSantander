@@ -80,6 +80,12 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                planAnticorrupcion.Date = Convert.ToDateTime(fecha);
+                planAnticorrupcion.Autor = autor.FullName;
+                planAnticorrupcion.DateEdition = Convert.ToDateTime(fecha);
+                planAnticorrupcion.AutorEdition = autor.FullName;
                 db.PlanAnticorrupcions.Add(planAnticorrupcion);
                 try
                 {
@@ -156,6 +162,11 @@ namespace ContraloriaNDSWeb.Controllers
                         db.SaveChanges();
                     }
                 }
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+               
+                planAnticorrupcion.DateEdition = Convert.ToDateTime(fecha);
+                planAnticorrupcion.AutorEdition = autor.FullName;
                 db.Entry(planAnticorrupcion).State = EntityState.Modified;
                 try
                 {

@@ -221,6 +221,7 @@
     <Compile Include="Controllers\ContralorsController.cs" />
     <Compile Include="Controllers\ControlAmbientalsController.cs" />
     <Compile Include="Controllers\ControlInternoesController.cs" />
+    <Compile Include="Controllers\DenunciasCategoriasController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\FuncionAdvertenciasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -253,6 +254,7 @@
     <Compile Include="Models\ContraloriandsContext.cs" />
     <Compile Include="Models\ControlAmbiental.cs" />
     <Compile Include="Models\ControlInterno.cs" />
+    <Compile Include="Models\DenunciasCategorias.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Directorio.cs" />
     <Compile Include="Models\Entes.cs" />
@@ -624,6 +626,11 @@
     <Content Include="Views\Notificacions\Index.cshtml" />
     <Content Include="Views\Notificacions\Notificaciones.cshtml" />
     <Content Include="Views\Notificacions\Notificacion.cshtml" />
+    <Content Include="Views\DenunciasCategorias\Create.cshtml" />
+    <Content Include="Views\DenunciasCategorias\Delete.cshtml" />
+    <Content Include="Views\DenunciasCategorias\Details.cshtml" />
+    <Content Include="Views\DenunciasCategorias\Edit.cshtml" />
+    <Content Include="Views\DenunciasCategorias\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

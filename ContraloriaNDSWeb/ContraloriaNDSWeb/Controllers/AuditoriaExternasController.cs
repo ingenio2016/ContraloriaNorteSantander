@@ -66,6 +66,12 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                auditoriaexterna.Date = Convert.ToDateTime(fecha);
+                auditoriaexterna.Autor = autor.FullName;
+                auditoriaexterna.DateEdition = Convert.ToDateTime(fecha);
+                auditoriaexterna.AutorEdition = autor.FullName;
                 db.AuditoriaExternas.Add(auditoriaexterna);
                 try
                 {
@@ -147,6 +153,10 @@ namespace ContraloriaNDSWeb.Controllers
                         db.SaveChanges();
                     }
                 }
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                auditoriaexterna.DateEdition = Convert.ToDateTime(fecha);
+                auditoriaexterna.AutorEdition = autor.FullName;
                 db.Entry(auditoriaexterna).State = EntityState.Modified;
                 try
                 {

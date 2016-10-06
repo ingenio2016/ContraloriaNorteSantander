@@ -28,7 +28,21 @@ namespace ContraloriaNDSWeb.Models
         [Display(Name = "Descripcion del Valor")]
         public string Descripcion { get; set; }
 
+        [Display(Name = "Fecha Creación")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm}", ApplyFormatInEditMode = true)]
+        public DateTime Date { get; set; }
 
+        [MaxLength(300, ErrorMessage = "El campo {0} debe ser máximo de {1} caracteres")]
+        [Display(Name = "Creado por")]
+        public string Autor { get; set; }
+
+        [Display(Name = "Fecha Edición")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm}", ApplyFormatInEditMode = true)]
+        public DateTime DateEdition { get; set; }
+
+        [MaxLength(300, ErrorMessage = "El campo {0} debe ser máximo de {1} caracteres")]
+        [Display(Name = "Editado por")]
+        public string AutorEdition { get; set; }
         public virtual Company Company { get; set; }
     }
 }

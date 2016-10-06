@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Web;
 
@@ -58,6 +59,22 @@ namespace ContraloriaNDSWeb.Models
 
         [Display(Name = "Nombre Completo")]
         public string FullName { get { return string.Format("{0} {1}", FirstName, LastName); } }
+
+        [Display(Name = "Fecha Creación")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm}", ApplyFormatInEditMode = true)]
+        public DateTime Date { get; set; }
+
+        [MaxLength(300, ErrorMessage = "El campo {0} debe ser máximo de {1} caracteres")]
+        [Display(Name = "Creado por")]
+        public string Autor { get; set; }
+
+        [Display(Name = "Fecha Edición")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm}", ApplyFormatInEditMode = true)]
+        public DateTime DateEdition { get; set; }
+
+        [MaxLength(300, ErrorMessage = "El campo {0} debe ser máximo de {1} caracteres")]
+        [Display(Name = "Editado por")]
+        public string AutorEdition { get; set; }
 
         [NotMapped]
         public HttpPostedFileBase PhotoFile { get; set; }

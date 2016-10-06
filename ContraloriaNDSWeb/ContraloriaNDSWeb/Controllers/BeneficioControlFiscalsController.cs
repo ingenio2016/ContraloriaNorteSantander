@@ -72,6 +72,12 @@ namespace ContraloriaNDSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                beneficioControlFiscal.Date = Convert.ToDateTime(fecha);
+                beneficioControlFiscal.Autor = autor.FullName;
+                beneficioControlFiscal.DateEdition = Convert.ToDateTime(fecha);
+                beneficioControlFiscal.AutorEdition = autor.FullName;
                 db.BeneficioControlFiscals.Add(beneficioControlFiscal);
                 try
                 {
@@ -145,6 +151,10 @@ namespace ContraloriaNDSWeb.Controllers
                         db.SaveChanges();
                     }
                 }
+                var fecha = DateTime.Now;
+                var autor = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                beneficioControlFiscal.DateEdition = Convert.ToDateTime(fecha);
+                beneficioControlFiscal.AutorEdition = autor.FullName;
                 db.Entry(beneficioControlFiscal).State = EntityState.Modified;
                 try
                 {

@@ -101,6 +101,8 @@ namespace ContraloriaNDSWeb.Models
 
         public virtual ICollection<Notificacion> Notificacion { get; set; }
 
+        public virtual ICollection<DenunciasCategorias> DenunciasCategorias { get; set; }
+
 
     }
 }
