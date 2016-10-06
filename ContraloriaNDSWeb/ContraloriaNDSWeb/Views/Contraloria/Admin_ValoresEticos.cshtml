@@ -32,8 +32,8 @@
             @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
-            @Html.ActionLink("Editar", "ValoresEticos_Editar", new { id = item.ValoresEticosId }, new { @class = "btn btn-warning" }) |
-            @Html.ActionLink("Detalle", "ValoresEticos_Detalle", new { id = item.ValoresEticosId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Editar", "ValoresEticos_Editar", new { id = item.ValoresEticosId }, new { @class = "btn btn-warning" })<br />
+            @Html.ActionLink("Detalle", "ValoresEticos_Detalle", new { id = item.ValoresEticosId }, new { @class = "btn btn-info" })<br />
             @Html.ActionLink("Borrar", "ValoresEticos_Borrar", new { id = item.ValoresEticosId }, new { @class = "btn btn-danger" })
         </td>
     </tr>

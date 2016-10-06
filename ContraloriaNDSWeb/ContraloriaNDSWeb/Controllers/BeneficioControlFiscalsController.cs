@@ -26,7 +26,7 @@ namespace ContraloriaNDSWeb.Controllers
             return View(beneficio.ToList());
         }
 
-        // GET: BeneficioControlFiscals
+        [Authorize(Roles = "User")]
         public ActionResult Index()
         {
             var user = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
@@ -38,7 +38,7 @@ namespace ContraloriaNDSWeb.Controllers
             return View(beneficio.ToList());
         }
 
-        // GET: BeneficioControlFiscals/Details/5
+        [Authorize(Roles = "User")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -53,7 +53,7 @@ namespace ContraloriaNDSWeb.Controllers
             return View(beneficioControlFiscal);
         }
 
-        // GET: BeneficioControlFiscals/Create
+        [Authorize(Roles = "User")]
         public ActionResult Create()
         {
             var user = db.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
@@ -110,7 +110,7 @@ namespace ContraloriaNDSWeb.Controllers
             return View(beneficioControlFiscal);
         }
 
-        // GET: BeneficioControlFiscals/Edit/5
+        [Authorize(Roles = "User")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -170,7 +170,7 @@ namespace ContraloriaNDSWeb.Controllers
             return View(beneficioControlFiscal);
         }
 
-        // GET: BeneficioControlFiscals/Delete/5
+        [Authorize(Roles = "User")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -185,7 +185,7 @@ namespace ContraloriaNDSWeb.Controllers
             return View(beneficioControlFiscal);
         }
 
-        // POST: BeneficioControlFiscals/Delete/5
+        [Authorize(Roles = "User")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

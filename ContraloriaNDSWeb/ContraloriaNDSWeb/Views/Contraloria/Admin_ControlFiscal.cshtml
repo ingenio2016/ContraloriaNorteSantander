@@ -1,0 +1,16 @@
+﻿@model ContraloriaNDSWeb.Models.Company
+
+@{
+    ViewBag.Title = "Administración sección Control Fiscal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Administración Control Fiscal</h2>
+
+<blockquote>
+    <p>@Html.ActionLink("Informes de Auditoría", "Index", "Auditorias")</p>
+    <p>@Html.ActionLink("Auditorías Internas", "Index", "AuditoriaInternas")</p>
+    <p>@Html.ActionLink("Auditorías Externas", "Index", "AuditoriaExternas")</p>
+    <p>@Html.ActionLink("Notificaciones", "Index", "Notificacions")</p>
+</blockquote>
+

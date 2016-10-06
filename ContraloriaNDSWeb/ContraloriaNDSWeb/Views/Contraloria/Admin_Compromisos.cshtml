@@ -26,8 +26,8 @@
             @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Compromisos_Editar", new { id = item.CompromisoId }, new { @class = "btn btn-warning" }) |
-            @Html.ActionLink("Detalle", "Compromisos_Detalle", new { id = item.CompromisoId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Editar", "Compromisos_Editar", new { id = item.CompromisoId }, new { @class = "btn btn-warning" })<br />
+            @Html.ActionLink("Detalle", "Compromisos_Detalle", new { id = item.CompromisoId }, new { @class = "btn btn-info" })<br />
             @Html.ActionLink("Borrar", "Compromisos_Borrar", new { id = item.CompromisoId }, new { @class = "btn btn-danger" })
         </td>
     </tr>

@@ -5,20 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ValoresEticos_Detalle</h2>
+<h2>Administración Web</h2>
 
 <div>
-    <h4>Valores Eticos</h4>
+    <h4>Detalle del Valor Etico</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Company.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Company.Name)
-        </dd>
-
+        
         <dt>
             @Html.DisplayNameFor(model => model.Nombre)
         </dt>
@@ -38,6 +31,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "ValoresEticos_Editar", new { id = Model.ValoresEticosId }, new { @class = "btn btn-primary" })) |
+    @Html.ActionLink("Editar", "ValoresEticos_Editar", new { id = Model.ValoresEticosId }, new { @class = "btn btn-primary" }) |
     @Html.ActionLink("Volver al Listado", "Admin_ValoresEticos", new { }, new { @class = "btn btn-success" })
 </p>

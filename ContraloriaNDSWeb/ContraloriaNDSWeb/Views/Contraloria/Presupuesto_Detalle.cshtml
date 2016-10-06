@@ -26,12 +26,14 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Adjunto)
-        </dd>
+            @if (!string.IsNullOrEmpty(Model.Adjunto))
+            {
+                <a class="btn btn-link" href="@Url.Content(Model.Adjunto)" target="_blank">@Html.DisplayFor(modelItem => modelItem.Descripcion)</a>
+            }        </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Prepuesto_Editar", new { id = Model.PresupuestoId }, new { @class = "btn btn-primary" })) |
+    @Html.ActionLink("Editar", "Prepuesto_Editar", new { id = Model.PresupuestoId }, new { @class = "btn btn-primary" }) |
     @Html.ActionLink("Volver al Listado", "Admin_Presupuesto", new { }, new { @class = "btn btn-success" })
 </p>

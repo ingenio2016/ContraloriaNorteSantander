@@ -11,7 +11,6 @@ using ContraloriaNDSWeb.Classes;
 
 namespace ContraloriaNDSWeb.Controllers
 {
-    [Authorize(Roles = "User")]
     public class InformeGestionsController : Controller
     {
         private ContraloriandsContext db = new ContraloriandsContext();
@@ -188,7 +187,7 @@ namespace ContraloriaNDSWeb.Controllers
             return View(informeGestion);
         }
 
-        // POST: InformeGestions/Delete/5
+        [Authorize(Roles = "User")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

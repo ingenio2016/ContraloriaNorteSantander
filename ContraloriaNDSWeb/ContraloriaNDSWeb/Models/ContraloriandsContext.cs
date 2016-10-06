@@ -70,5 +70,17 @@ namespace ContraloriaNDSWeb.Models
         public System.Data.Entity.DbSet<ContraloriaNDSWeb.Models.FuncionAdvertencia> FuncionAdvertencias { get; set; }
 
         public System.Data.Entity.DbSet<ContraloriaNDSWeb.Models.BeneficioControlFiscal> BeneficioControlFiscals { get; set; }
+
+        public System.Data.Entity.DbSet<ContraloriaNDSWeb.Models.JurisdiccionCoactiva> JurisdiccionCoactivas { get; set; }
+
+        public System.Data.Entity.DbSet<ContraloriaNDSWeb.Models.ControlAmbiental> ControlAmbientals { get; set; }
+
+        public System.Data.Entity.DbSet<ContraloriaNDSWeb.Models.Auditoria> Auditorias { get; set; }
+
+        public System.Data.Entity.DbSet<ContraloriaNDSWeb.Models.AuditoriaInterna> AuditoriaInternas { get; set; }
+
+        public System.Data.Entity.DbSet<ContraloriaNDSWeb.Models.AuditoriaExterna> AuditoriaExternas { get; set; }
+
+        public System.Data.Entity.DbSet<ContraloriaNDSWeb.Models.Notificacion> Notificacions { get; set; }
     }
 }

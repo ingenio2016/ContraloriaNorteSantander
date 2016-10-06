@@ -12,14 +12,7 @@
     <h4>Borrar principio Etico</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Company.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Company.Name)
-        </dd>
-
+        
         <dt>
             @Html.DisplayNameFor(model => model.Descripcion)
         </dt>
@@ -34,8 +27,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Guardar" class="btn btn-danger" /> |
-            @Html.ActionLink("Volver al Listado", "Admin_PlanesProgramas", new { }, new { @class = "btn btn-success" })
+            <input type="submit" value="Borrar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver al Listado", "Admin_PrincipiosEticos", new { }, new { @class = "btn btn-success" })
         </div>
     }
 </div>

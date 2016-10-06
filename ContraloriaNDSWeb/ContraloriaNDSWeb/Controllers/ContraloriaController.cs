@@ -51,6 +51,17 @@ namespace ContraloriaNDSWeb.Controllers
             return View(contraloria);
         }
 
+        public ActionResult Admin_ControlFiscal()
+        {
+            var contraloria = db.Companies.Where(x => x.CompanyId == 2).FirstOrDefault();
+            if (contraloria == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(contraloria);
+        }
+
         [Authorize(Roles = "User")]
         public ActionResult Admin_Nosotros()
         {

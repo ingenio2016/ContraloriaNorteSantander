@@ -8,16 +8,9 @@
 <h2>Administración Web</h2>
 
 <div>
-    <h4>Directorio</h4>
+    <h4>Detalle Directorio</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Company.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Company.Name)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Nombre)
@@ -72,12 +65,19 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Logo)
+            @if (!string.IsNullOrEmpty(Model.Logo))
+            {
+                <img src="@Url.Content(Model.Logo)" alt="Image" style="width:100px;height:100px;max-width: 100%; height: auto;" />
+            }
+            else
+            {
+                <img src="~/Content/Funcionarios/no-photo.png" alt="Image" style="width:100px;height:100px;max-width: 100%; height: auto;" />
+            }
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Directorio_Editar", new { id = Model.DirectorioId }) |
+    @Html.ActionLink("Editar", "Directorio_Editar", new { id = Model.DirectorioId }, new { @class = "btn btn-primary" }) |
     @Html.ActionLink("Volver al Listado", "Admin_Directorio", new { }, new { @class = "btn btn-success" })
 </p>

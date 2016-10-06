@@ -11,14 +11,7 @@
     <h4>Políticas de Calidad</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Company.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Company.Name)
-        </dd>
-
+        
         <dt>
             @Html.DisplayNameFor(model => model.Descripcion)
         </dt>
@@ -30,6 +23,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "PoliticasCalidad_Editar", new { id = Model.PoliticasCalidadId }, new { @class = "btn btn-primary" })) |
+    @Html.ActionLink("Editar", "PoliticasCalidad_Editar", new { id = Model.PoliticasCalidadId }, new { @class = "btn btn-primary" }) |
     @Html.ActionLink("Volver al Listado", "Admin_PoliticasCalidad", new { }, new { @class = "btn btn-success" })
 </p>

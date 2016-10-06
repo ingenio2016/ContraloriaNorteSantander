@@ -34,9 +34,11 @@ namespace ContraloriaNDSWeb.Models
         public int CompanyId { get; set; }
 
         [Display(Name = "Nombre Completo")]
+
         public string FullName { get { return string.Format("{0} {1}", FirstName, LastName); } }
 
         [DataType(DataType.ImageUrl)]
+        [Display(Name = "Foto")]
         public string Photo { get; set; }
 
         [NotMapped]

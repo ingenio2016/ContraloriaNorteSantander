@@ -38,6 +38,7 @@ namespace ContraloriaNDSWeb.Models
         public string Address { get; set; }
 
         [DataType(DataType.ImageUrl)]
+        [Display(Name = "Foto")]
         public string Photo { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido")]

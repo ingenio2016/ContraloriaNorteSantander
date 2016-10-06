@@ -89,6 +89,18 @@ namespace ContraloriaNDSWeb.Models
 
         public virtual ICollection<BeneficioControlFiscal> BeneficioControlFiscal { get; set; }
 
+        public virtual ICollection<JurisdiccionCoactiva> JurisdiccionCoactiva { get; set; }
+
+        public virtual ICollection<ControlAmbiental> ControlAmbiental { get; set; }
+
+        public virtual ICollection<Auditoria> Auditoria { get; set; }
+
+        public virtual ICollection<AuditoriaInterna> AuditoriaInterna { get; set; }
+
+        public virtual ICollection<AuditoriaExterna> AuditoriaExterna { get; set; }
+
+        public virtual ICollection<Notificacion> Notificacion { get; set; }
+
 
     }
 }

@@ -4,7 +4,7 @@
     ViewBag.Title = "Controlamos a ";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ContraloriaNDSWeb.Models.ContraloriandsContext db = new ContraloriaNDSWeb.Models.ContraloriandsContext();
-    var municipios = db.Cities.Where(x => x.DepartmentId == Model.DepartmentId).ToList().OrderBy(x=>x.Name);
+    var municipios = db.Cities.Where(x => x.DepartmentId == Model.DepartmentId).ToList().OrderBy(x => x.Name);
     var entes = db.Entes.Where(x => x.CompanyId == Model.CompanyId).ToList().OrderBy(x => x.Descripcion);
     var consejos = db.Consejoes.Where(x => x.CompanyId == Model.CompanyId).ToList().OrderBy(x => x.Descripcion);
     var hospitales = db.Hospitals.Where(x => x.CompanyId == Model.CompanyId).ToList().OrderBy(x => x.Descripcion);
@@ -16,7 +16,7 @@
 <div class="accordion">
     <h2>Controlamos a</h2>
     <div class="panel-group" id="accordion1">
-      
+
 
         <div class="panel panel-default">
             <div class="panel-heading">

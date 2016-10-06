@@ -183,7 +183,7 @@ namespace ContraloriaNDSWeb.Controllers
             return View(controlInterno);
         }
 
-        // POST: ControlInternoes/Delete/5
+        [Authorize(Roles = "User")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
